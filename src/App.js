@@ -43,14 +43,29 @@ function App() {
           <p className='message'> Step {step}: { messages[step-1]} </p>
 
           <div className='buttons'>
-            <button style={{ background: '#7950f2', color: '#fff' }}
-              onClick={handlePrevious}>Previous</button>
-            <button style={{ background: '#7950f2', color: '#fff' }}
-              onClick={handleNext}>Next</button>
+            <Button bgcolor='#7950f2' color='#fff' onClick={handlePrevious}>
+              <span>👈</span> Previous
+            </Button>
+
+            <Button bgcolor='#7950f2' color='#fff' onClick={handleNext}>
+              Next <span>👉</span>
+            </Button>
           </div>
       </div>)}
     </>
     );
+}
+
+function Button(props) {
+  
+  const { color, bgcolor, onClick, children} = props; 
+
+  return (
+    <button style={{ background: bgcolor, color: color }}
+      onClick={onClick}>
+      {children}
+    </button >
+  )
 }
 
 export default App;
